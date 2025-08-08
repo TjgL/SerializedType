@@ -1,0 +1,8 @@
+{
+  "name": "com.tjgl.serializedtype",
+  "displayName": "Serialized Type",
+  "version": "0.1.0",
+  "unity": "6000.0",
+  "description": "A single class 'SerializedType' that allows the serialization of System.Type variables.",
+  "author": "TjgL"
+}

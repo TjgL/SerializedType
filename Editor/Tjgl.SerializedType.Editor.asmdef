@@ -1,0 +1,18 @@
+{
+    "name": "Tjgl.SerializedType.Editor",
+    "rootNamespace": "Tjgl.SerializedType.Editor",
+    "references": [
+        "GUID:85f0e07d6b5dcfc45a8bbcecbf457d31"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
