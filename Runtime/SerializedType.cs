@@ -41,7 +41,33 @@ namespace Tjgl.SerializedType
 			type = System.Type.GetType(assemblyQualifiedName);
 			return type != null;
 		}
-		
+
+		/// <summary> Creates a new instance of SerializedType from the specified generic type parameter. </summary>
+		/// <typeparam name="T2">
+		/// The type to assign to the SerializedType.
+		/// It must be assignable to the generic parameter T. </typeparam>
+		/// <returns>The SerializedType initialized with the correct Type.</returns>
+		public static SerializedType<T> FromType<T2>() where T2 : T => new()
+		{
+			Type = typeof(T2),
+			_assemblyQualifiedName = typeof(T2).AssemblyQualifiedName
+		};
+
 		public static implicit operator System.Type(SerializedType<T> type) => type.Type;
+
+		// Disabled by default since this doesn't causes a compile time error, only a runtime exception.
+#if ST_ALLOW_IMPLICIT_CASTS
+		public static implicit operator SerializedType<T>(System.Type type)
+		{
+			if (type != null && !typeof(T).IsAssignableFrom(type))
+				throw new System.ArgumentException($"Type {type} is not assignable to {typeof(T)}");
+			
+			return new SerializedType<T>
+			{
+				Type = type,
+				_assemblyQualifiedName = type.AssemblyQualifiedName
+			};
+		}
+#endif
 	}
 }
